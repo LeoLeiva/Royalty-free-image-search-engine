@@ -30,7 +30,7 @@ _Que paquetes necesitas para ejecutar el script aparte de Python_
 
 ## Ver ejemplo 🖇️
 
->[www.reinolibre.tk](https://www.reinolibre.tk)
+>[www.reinolibre.tk](http://www.reinolibre.tk)
 
 ---
 
