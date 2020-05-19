@@ -43,8 +43,8 @@ _Que paquetes necesitas para ejecutar el script aparte de Python_
 
 ## Versionado 📖
 
-**Version 1**
-Web usadas para la busqueda:
+**Version 1**  
+Web usadas para la busqueda:  
 * Pixabay
 * Pexels
 * Flickr
