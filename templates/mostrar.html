@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mostrar resultados</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+
+<body>
+    <div class="my-fixed-item">
+        <div class="span3 widget-span widget-type-raw_html custom-search" style="" data-widget-type="raw_html" data-x="4" data-w="3">
+            <div class="cell-wrapper layout-widget-wrapper">
+                <span id="hs_cos_wrapper_module_14308928327274411" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html">
+                    <form method="POST" action="{{url_for('procesar')}}" class="navbar-form navbar-left ng-pristine ng-valid" id="express-form">
+                        <input required="" name="busqueda" placeholder="Buscar" class="form-control tt-input" id="express-form-typeahead" autocomplete="off" spellcheck="false" dir="auto" type="text">
+                        <button class="search-btn" type="submit"><span class="icon"></span></button>
+                    </form>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="info">
+        <h2>Resultados para: {{ busqueda }}</h2>
+    </div>
+    <div class="contenedor">
+        {% for item, flickr, wikimedia, pexels, unsplash in listimg %}
+        {% if item and item != '?' %}
+        <div class="column">
+            <div class="see-img">
+                <a href="{{ item.1 }}" target="_blank"><img src="{{ item.3 }}"></a>
+            </div>
+            <strong>Pixabay</strong>
+        </div>
+        {% endif %}
+        {% if flickr and flickr != '?' %}
+        <div class="column">
+            <div class="see-img">
+                <a href="https://www.flickr.com/photos/{{ flickr.1 }}/{{ flickr.0 }}/" target="_blank"><img src="{{ flickr.2 }}"></a>
+            </div>
+            <strong>Flickr</strong>
+        </div>
+        {% endif %}
+        {% if wikimedia and wikimedia != '?' %}
+        <div class="column">
+            <div class="see-img">
+                <a href="{{ wikimedia.1 }}" target="_blank"><img src="{{ wikimedia.0 }}"></a>
+            </div>
+            <strong>Wikimedia</strong>
+        </div>
+        {% endif %}
+        {% if pexels and pexels != '?' %}
+        <div class="column">
+            <div class="see-img">
+                <a href="{{ pexels.0 }}" target="_blank"><img src="{{ pexels.1 }}"></a>
+            </div>
+            <strong>Pexels</strong>
+        </div>
+        {% endif %}
+        {% if unsplash and unsplash != '?' %}
+        <div class="column">
+            <div class="see-img">
+                <a href="{{ unsplash.1 }}" target="_blank"><img src="{{ unsplash.0 }}"></a>
+            </div>
+            <strong>Unsplash</strong>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <footer>
+        <div class="footer">
+            <p>©Copyright 2020 | Idea: <a href="http://www.gileiva.com.ar" class="estilink" target="_blank">Gi Leiva</a> - Desarrollo: <a href="http://www.leoleivadev.com" class="estilink" target="_blank">Leo Leiva</a> | Todos los derechos reservados. | <a href="https://www.linkedin.com/in/leoleivacab/" class="estilink" target="_blank"><i class="fab fa-linkedin fa-1x"></i></a><a href="https://github.com/LeoLeiva" class="estilink" target="_blank"><i class="fab fa-github fa-1x"></i></a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
